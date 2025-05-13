@@ -6,12 +6,13 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 03:03:35 by svogrig           #+#    #+#              #
-#    Updated: 2025/05/11 23:54:23 by svogrig          ###   ########.fr        #
+#    Updated: 2025/05/13 15:53:25 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	array
 
-SRC 	:=	main.cpp
+SRC 	:=	main.cpp \
+			utils.cpp
 
 include ../ex00/Makefile

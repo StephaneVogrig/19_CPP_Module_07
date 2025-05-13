@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 22:51:06 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/11 20:12:20 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/13 16:10:04 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void isDigit(char & c)
 int main(void)
 {
 	displaySection("ex01 : iter");
-	
+
 	displaySection("test arrayInt");
 	int arrayInt[] = {1, 2, 3};
 	int length = sizeof(arrayInt) / sizeof(arrayInt[0]);
@@ -40,7 +40,7 @@ int main(void)
 	iter(arrayInt, length, print);
 	displaySubtest("square");
 	iter(arrayInt, length, square);
-	
+
 	displaySection("test arrayString");
 	std::string arrayString[] = {"a string", "an other string", "always a string", "more string"};
 	length = sizeof(arrayString) / sizeof(arrayString[0]);
@@ -56,6 +56,6 @@ int main(void)
 	iter(arrayChar, length, print);
 	displaySubtest("isDigit");
 	iter(arrayChar, length, isDigit);
-	
-	return EXIT_SUCCESS;	
+
+	return EXIT_SUCCESS;
 }

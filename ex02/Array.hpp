@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 20:35:22 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/12 00:06:47 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/13 18:03:19 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,22 @@
 # define ARRAY_HPP
 
 # include <stdexcept>
+# include <iostream>
 
 template <typename T>
 class Array
 {
 	public:
 
-		Array() : _data(NULL), _size(0)
-		{}
-		
-		Array(unsigned int n) : _size(n)
-		{
-			if (n == 0)
-				_data = NULL;
-			else
-				_data = new T[n];
-		}
-		
-		Array(const Array & toCopy)
-		{
-			*this = toCopy;
-		}
+		Array();		
+		Array(unsigned int n);
+		Array(const Array<T> & toCopy);
+		~Array();
 
-		~Array()
-		{
-			delete[] _data;
-		}
-
-		Array & operator = (const Array & toAssign)
-		{
-			if (this == toAssign)
-				return this;
-
-			delete[] _data;
-			_size = toAssign.size();
-			if (toAssign.size() == 0)
-				_data = NULL;
-			else
-			{
-				_data = new T[_size];
-				for (unsigned int i = 0; i < _size; i++)
-					_data[i] = toAssign._data[i];
-			}
-			return *this;
-		}
-		
-		T & operator [] (unsigned int index)
-		{
-			if (index >= _size)
-				throw std::out_of_range("Error: index out of range");
-			return _data[index];
-		}
-
-		std::size_t size() const
-		{
-			return _size;
-		}
+		Array<T> &	operator = (const Array<T> & toAssign);
+		const T & 		operator [] (unsigned int index) const;
+		T & 		operator [] (unsigned int index);
+		std::size_t size() const;
 
 	private:
 
@@ -77,5 +37,10 @@ class Array
 		size_t	_size;
 
 };
+
+template <typename T>
+std::ostream & operator << (std::ostream & ostream, const Array<T> & array);
+
+# include "Array.tpp"
 
 #endif
